@@ -10,12 +10,13 @@ import helmet from "helmet"
 
 //config
 dotenv.config();
+const URI = process.env.MONGO_URI || "";
+const PORT = process.env.PORT || 3000;
 
 //mount app
 const app = express();
 
 //database
-const URI = process.env.MONGO_URI || "";
 mongoose
   .connect(URI, {
     useNewUrlParser: true,
@@ -53,4 +54,4 @@ app.use(postCards);
 app.use(getData);
 
 //server listen
-app.listen(3000, () => console.log("App listening on 3000"));
+app.listen(3000, () => console.log("App listening on " + PORT));
