@@ -15,4 +15,8 @@ router.get("/view", (_, res) => {
     res.sendFile(path.join(__dirname + "/../views/card.html"))
 })
 
+router.get("/update", (_, res) => {
+    res.sendFile(path.join(__dirname + "/../views/update.html"))
+})
+
 export default router

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../public/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-content">
+        <h1>Update your card!</h1>
+        <p>Use this form to update your card. Enter your username below to get your current card data.</p>
+        <form onsubmit="renderCurrent(username); return false;">
+        <label for="username">Username: <input name="username" type="text" required><button type="submit">Get data</button></button></label>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <div id="data" class="card-content">
+        <p>Enter username to view current card</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <p>Fill out the form below to update your profile card. If you do not wish to change your username or password, leave the "New" fields blank. For the URL fields, a blank input will delete the current url.</p>
+        <form action="/update" method="POST">
+          <p>
+            <label for="cUsername"
+              >Current Username: <input name="cUsername" type="text" required
+            /></label>
+          </p>
+          <p>
+            <label for="cPassword"
+              >Current Password: <input name="cPassword" type="password" required
+            /></label>
+          </p>
+          <label for="nUsername"
+          >New Username: <input name="nUsername" type="text">
+      </p>
+      <p>
+        <label for="nPassword"
+          >New Password: <input name="nPassword" type="password"
+        /></label>
+      </p>
+          <p>
+            <label for="facebook"
+              >Facebook URL: <input name="facebook" type="url"
+            /></label>
+          </p>
+          <p>
+            <label for="twitter"
+              >Twitter URL: <input name="twitter" type="url"
+            /></label>
+          </p>
+          <p>
+            <label for="linkedin"
+              >LinkedIn URL: <input name="linkedin" type="url"
+            /></label>
+          </p>
+          <p>
+            <label for="github"
+              >GitHub URL: <input name="github" type="url"
+            /></label>
+          </p>
+          <p>
+            <label for="tumblr"
+              >tumblr URL: <input name="tumblr" type="url"
+            /></label>
+          </p>
+          <p>
+            <label for="portfolio"
+              >Portfolio URL: <input name="portfolio" type="url"
+            /></label>
+          </p>
+          <button type="submit">Update!</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="../public/update.js"></script>
+</html>
