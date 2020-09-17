@@ -1,4 +1,4 @@
-const renderCurrent = async (username: HTMLInputElement) => {
+const search = async (username: HTMLInputElement) => {
   const place = document.getElementById("data");
   const base = location.href.substring(0, location.href.length - 6);
   const data = await fetch(base + "data?user=" + username.value);

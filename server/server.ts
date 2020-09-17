@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import getViews from "../routes/render";
 import postCards from "../routes/cards";
-import getData from "../routes/data"
+import getData from "../routes/data";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
@@ -34,7 +34,7 @@ app.use("/assets", express.static(path.join(__dirname + "/../assets")));
 //routes
 app.use(getViews);
 app.use(postCards);
-app.use(getData)
+app.use(getData);
 
 //server listen
 app.listen(3000, () => console.log("App listening on 3000"));

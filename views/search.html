@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../public/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-content">
+        <h1>Search for a user!</h1>
+        <p>Enter a username below to find a current user's card.</p>
+        <form onsubmit="search(username); return false;">
+        <label for="username">Username: <input name="username" type="text" required><button type="submit">Get data</button></button></label>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <div id="data" class="card-content">
+        <p>Enter username to view card</p>
+      </div>
+    </div>
+  </body>
+  <script src="../public/search.js"></script>
+</html>

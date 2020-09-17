@@ -26,19 +26,19 @@ router.post("/create", async (req, res) => {
 });
 
 router.post("/update", async (req, res) => {
-    const data = await UserCard.findOne({username: req.body.cUsername})
-    if (!data) return res.send("Invalid Username")
-    if (data.password !== req.body.cPassword) return res.send("Invalid password")
-    if (req.body.nUsername) data.username = req.body.nUsername
-    if (req.body.nPassword) data.password = req.body.nPassword
-    data.facebook = req.body.facebook
-    data.twitter = req.body.twitter
-    data.linkedin = req.body.linkedin
-    data.github = req.body.github
-    data.tumblr = req.body.tumblr
-    data.portfolio = req.body.portfolio
-    await data.save()
-    res.redirect("/view?user=" + data.username) 
-})
+  const data = await UserCard.findOne({ username: req.body.cUsername });
+  if (!data) return res.send("Invalid Username");
+  if (data.password !== req.body.cPassword) return res.send("Invalid password");
+  if (req.body.nUsername) data.username = req.body.nUsername;
+  if (req.body.nPassword) data.password = req.body.nPassword;
+  data.facebook = req.body.facebook;
+  data.twitter = req.body.twitter;
+  data.linkedin = req.body.linkedin;
+  data.github = req.body.github;
+  data.tumblr = req.body.tumblr;
+  data.portfolio = req.body.portfolio;
+  await data.save();
+  res.redirect("/view?user=" + data.username);
+});
 
 export default router;

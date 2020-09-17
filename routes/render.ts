@@ -1,7 +1,7 @@
 import { Router } from "express";
 import path from "path";
 
-const router = Router()
+const router = Router();
 
 router.get("/", (_, res) => {
   res.sendFile(path.join(__dirname + "/../views/index.html"));
@@ -12,11 +12,15 @@ router.get("/create", (_, res) => {
 });
 
 router.get("/view", (_, res) => {
-    res.sendFile(path.join(__dirname + "/../views/card.html"))
-})
+  res.sendFile(path.join(__dirname + "/../views/card.html"));
+});
 
 router.get("/update", (_, res) => {
-    res.sendFile(path.join(__dirname + "/../views/update.html"))
-})
+  res.sendFile(path.join(__dirname + "/../views/update.html"));
+});
 
-export default router
+router.get("/search", (_, res) => {
+  res.sendFile(path.join(__dirname + "/../views/search.html"));
+});
+
+export default router;
