@@ -3,6 +3,7 @@ import { Document, model, Schema } from "mongoose";
 export interface UserCardInt extends Document {
   username: string;
   password: string;
+  bio: string;
   facebook?: string;
   twitter?: string;
   linkedin?: string;
@@ -14,6 +15,7 @@ export interface UserCardInt extends Document {
 export const UserCardSchema = new Schema({
   username: String,
   password: String,
+  bio: String,
   facebook: String,
   twitter: String,
   linkedin: String,

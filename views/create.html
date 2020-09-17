@@ -18,13 +18,30 @@
         <form action="/create" method="POST">
           <p>
             <label for="username"
-              >Username: <input name="username" type="text" required
+              >Username:
+              <input
+                name="username"
+                type="text"
+                pattern="[A-Za-z0-9]{4, 20}"
+                title="Username must contain only letters and numbers, and be between 4 and 20 characters long."
+                required
             /></label>
           </p>
           <p>
             <label for="password"
-              >Password: <input name="password" type="password" required
+              >Password:
+              <input
+                name="password"
+                type="password"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                title="Minimum eight characters, at least one letter, one number and one special character"
+                required
             /></label>
+          </p>
+          <p>
+            <label for="bio"
+              >Bio: <textarea name="bio" cols="30" rows="5" required></textarea>
+            </label>
           </p>
           <p>
             <label for="facebook"

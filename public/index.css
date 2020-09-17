@@ -32,3 +32,7 @@ a {
 .card-content > p > a {
   color: #3a3240;
 }
+
+textarea {
+  resize: none;
+}

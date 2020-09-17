@@ -3,6 +3,7 @@ import path from "path";
 import { displayPartsToString } from "typescript";
 import { UserCard } from "../interfaces/user";
 import bcrypt from "bcrypt";
+import xss from "xss";
 
 const router = Router();
 
@@ -14,6 +15,7 @@ router.post("/create", async (req, res) => {
   const newCard = new UserCard({
     username: req.body.username,
     facebook: req.body.facebook,
+    bio: xss(req.body.bio),
     twitter: req.body.twitter,
     linkedin: req.body.linkedin,
     github: req.body.github,
@@ -36,6 +38,7 @@ router.post("/update", async (req, res) => {
         if (req.body.nUsername) data.username = req.body.nUsername;
         if (req.body.nPassword)
           data.password = await bcrypt.hash(req.body.nPassword, 10);
+        data.bio = xss(req.body.bio);
         data.facebook = req.body.facebook;
         data.twitter = req.body.twitter;
         data.linkedin = req.body.linkedin;

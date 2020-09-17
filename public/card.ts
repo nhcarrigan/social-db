@@ -4,7 +4,7 @@ const render = async () => {
   const base = param[0].substring(0, param[0].length - 4);
   const data = await fetch(base + "data?" + param[1]);
   const parsed = await data.json();
-  let content = `<h1>${parsed.username}</h1>`;
+  let content = `<h1>${parsed.username}</h1><p>${parsed.bio}</p>`;
   if (parsed.facebook)
     content += `<p><a href="${parsed.facebook}">Facebook</a></p>`;
   if (parsed.twitter)
