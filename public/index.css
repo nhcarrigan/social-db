@@ -36,3 +36,12 @@ a {
 textarea {
   resize: none;
 }
+
+input,
+textarea,
+button {
+  background-color: #3a3240;
+  color: #dfc0fa;
+  border-radius: 10px;
+  border: 2px solid teal;
+}
