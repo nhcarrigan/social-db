@@ -2,18 +2,17 @@ import { Router } from "express";
 import path from "path";
 import { displayPartsToString } from "typescript";
 import { UserCard } from "../interfaces/user";
+import bcrypt from "bcrypt";
 
 const router = Router();
 
 router.post("/create", async (req, res) => {
-  console.log(req.body);
   const data = await UserCard.findOne({ username: req.body.username });
   if (data) {
     return res.send("Username Taken!");
   }
   const newCard = new UserCard({
     username: req.body.username,
-    password: req.body.password,
     facebook: req.body.facebook,
     twitter: req.body.twitter,
     linkedin: req.body.linkedin,
@@ -21,6 +20,7 @@ router.post("/create", async (req, res) => {
     tumblr: req.body.tumblr,
     portfolio: req.body.portfolio,
   });
+  newCard.password = await bcrypt.hash(req.body.password, 10);
   await newCard.save();
   res.redirect("/view?user=" + req.body.username);
 });
@@ -28,17 +28,28 @@ router.post("/create", async (req, res) => {
 router.post("/update", async (req, res) => {
   const data = await UserCard.findOne({ username: req.body.cUsername });
   if (!data) return res.send("Invalid Username");
-  if (data.password !== req.body.cPassword) return res.send("Invalid password");
-  if (req.body.nUsername) data.username = req.body.nUsername;
-  if (req.body.nPassword) data.password = req.body.nPassword;
-  data.facebook = req.body.facebook;
-  data.twitter = req.body.twitter;
-  data.linkedin = req.body.linkedin;
-  data.github = req.body.github;
-  data.tumblr = req.body.tumblr;
-  data.portfolio = req.body.portfolio;
-  await data.save();
-  res.redirect("/view?user=" + data.username);
+  await bcrypt.compare(
+    req.body.cPassword,
+    data.password,
+    async (err, result) => {
+      if (result) {
+        if (req.body.nUsername) data.username = req.body.nUsername;
+        if (req.body.nPassword)
+          data.password = await bcrypt.hash(req.body.nPassword, 10);
+        data.facebook = req.body.facebook;
+        data.twitter = req.body.twitter;
+        data.linkedin = req.body.linkedin;
+        data.github = req.body.github;
+        data.tumblr = req.body.tumblr;
+        data.portfolio = req.body.portfolio;
+        await data.save();
+        res.redirect("/view?user=" + data.username);
+      }
+      if (err || !result) {
+        res.send("Invalid password");
+      }
+    }
+  );
 });
 
 export default router;
