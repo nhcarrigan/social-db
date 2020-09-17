@@ -11,4 +11,8 @@ router.get("/create", (_, res) => {
   res.sendFile(path.join(__dirname + "/../views/create.html"));
 });
 
+router.get("/view", (_, res) => {
+    res.sendFile(path.join(__dirname + "/../views/card.html"))
+})
+
 export default router
