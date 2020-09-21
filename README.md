@@ -4,8 +4,7 @@ Project Description
 
 ## Live Version
 
-This page is not yet deployed.
-<!--This page is currently deployed. [View the live website.]()-->
+This page is currently deployed. [View the live website.](http://socialdb.nhcarrigan.com)
 
 ## Feedback, Bugs, and Contributions
 
