@@ -16,6 +16,9 @@ router.post("/create", async (req, res) => {
     username: req.body.username,
     facebook: req.body.facebook,
     bio: xss(req.body.bio),
+    bgcolour: req.body.bgcolour,
+    txtcolour: req.body.txtcolour,
+    avatar: req.body.avatar,
     twitter: req.body.twitter,
     linkedin: req.body.linkedin,
     github: req.body.github,
@@ -39,6 +42,9 @@ router.post("/update", async (req, res) => {
         if (req.body.nPassword)
           data.password = await bcrypt.hash(req.body.nPassword, 10);
         data.bio = xss(req.body.bio);
+        data.avatar = req.body.avatar;
+        data.bgcolour = req.body.bgcolour,
+        data.txtcolour = req.body.txtcolour,
         data.facebook = req.body.facebook;
         data.twitter = req.body.twitter;
         data.linkedin = req.body.linkedin;
