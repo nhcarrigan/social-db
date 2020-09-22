@@ -38,7 +38,7 @@ app.use(
         "img-src": "*",
         "script-src": ["'self'", "'unsafe-inline'"],
         "object-src": ["'none'"],
-        "style-src-elem": ["'self'", "fonts.googleapis.com"],
+        "style-src-elem": ["'self'", "'unsafe-inline'"],
         "font-src": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
       },
     },

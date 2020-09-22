@@ -17,6 +17,8 @@ const render = async () => {
   if (parsed.portfolio)
     content += `<p><a href="${parsed.portfolio}">Portfolio</a></p>`;
   if (place) place.innerHTML = content;
-};
+  let top = document.getElementsByTagName("head")[0]
+  if (parsed.bgcolour) top.innerHTML += `<style> #data {background-color: ${parsed.bgcolour} !important;}`
+  if (parsed.txtcolour) top.innerHTML += `<style> #data {color: ${parsed.txtcolour} !important;} #data > p > a {color: ${parsed.txtcolour} !important;}`};
 
 //window.onload = render()

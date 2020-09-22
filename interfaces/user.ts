@@ -4,6 +4,8 @@ export interface UserCardInt extends Document {
   username: string;
   password: string;
   bio: string;
+  bgcolour?: string;
+  txtcolour?: string;
   avatar?: string;
   facebook?: string;
   twitter?: string;
@@ -13,10 +15,12 @@ export interface UserCardInt extends Document {
   portfolio?: string;
 }
 
-export const UserCardSchema = new Schema({
+export const UserCardSchema: Schema<UserCardInt> = new Schema({
   username: String,
   password: String,
   bio: String,
+  bgcolour: String,
+  txtcolour: String,
   avatar: String,
   facebook: String,
   twitter: String,
