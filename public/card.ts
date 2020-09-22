@@ -5,6 +5,7 @@ const render = async () => {
   const data = await fetch(base + "data?" + param[1]);
   const parsed = await data.json();
   let content = `<h1>${parsed.username}</h1><p>${parsed.bio}</p>`;
+  if (parsed.avatar) content += `<img class="pfp" src="${parsed.avatar}">`
   if (parsed.facebook)
     content += `<p><a href="${parsed.facebook}">Facebook</a></p>`;
   if (parsed.twitter)

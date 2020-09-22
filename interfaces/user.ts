@@ -4,6 +4,7 @@ export interface UserCardInt extends Document {
   username: string;
   password: string;
   bio: string;
+  avatar?: string;
   facebook?: string;
   twitter?: string;
   linkedin?: string;
@@ -16,6 +17,7 @@ export const UserCardSchema = new Schema({
   username: String,
   password: String,
   bio: String,
+  avatar: String,
   facebook: String,
   twitter: String,
   linkedin: String,

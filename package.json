@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./server/server.js",
+    "predev": "tsc",
     "dev": "concurrently \"tsc -w\" \"nodemon ./server/server.js\""
   },
   "repository": {

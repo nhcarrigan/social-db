@@ -4,6 +4,7 @@ const search = async (username: HTMLInputElement) => {
   const data = await fetch(base + "data?user=" + username.value);
   const parsed = await data.json();
   let content = `<h1>${parsed.username}</h1><p>${parsed.bio}</p>`;
+  if (parsed.avatar) content += `<img class="pfp" src="${parsed.avatar}">`
   if (parsed.facebook)
     content += `<p><a href="${parsed.facebook}">Facebook</a></p>`;
   if (parsed.twitter)
