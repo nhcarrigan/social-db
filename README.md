@@ -1,9 +1,9 @@
-# Project Name
+# Social DB
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Project Description
+This is a website that allows users to create "Virtual Business Cards" to quickly share all of their social media links at once.
 
 ## Live Version
 
