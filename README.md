@@ -7,7 +7,7 @@ This is a website that allows users to create "Virtual Business Cards" to quickl
 
 ## Live Version
 
-This page is currently deployed. [View the live website.](http://socialdb.nhcarrigan.com)
+This project is archived and is no longer deployed
 
 ## Feedback and Bugs
 
